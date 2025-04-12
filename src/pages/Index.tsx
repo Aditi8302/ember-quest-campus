@@ -1,11 +1,26 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { isUserLoggedIn } from '@/lib/storage';
 
 const Index = () => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    // If user is logged in, go to map, otherwise go to registration
+    if (isUserLoggedIn()) {
+      navigate('/map');
+    } else {
+      navigate('/registration');
+    }
+  }, [navigate]);
+  
+  // Loading screen while redirecting
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-amber-50">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+        <div className="text-4xl mb-4 animate-fire-flicker">🔥</div>
+        <h1 className="text-2xl font-pixel mb-4">Loading thy quest...</h1>
       </div>
     </div>
   );

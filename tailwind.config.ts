@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,21 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Game specific colors
+				ember: {
+					DEFAULT: '#F97316', // Bright orange
+					dark: '#B45309', // Dark orange
+					light: '#FDBA74', // Light orange
+				},
+				stone: {
+					DEFAULT: '#8E9196',
+					dark: '#1A1F2C',
+					light: '#F1F0FB',
+				},
+				moss: '#84CC16',
+				bone: '#FEF7CD',
+				lava: '#DC2626',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +99,31 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fire-flicker': {
+					'0%, 100%': { transform: 'translateY(0) scale(1)', opacity: '1' },
+					'25%': { transform: 'translateY(-5px) scale(1.05)', opacity: '0.8' },
+					'50%': { transform: 'translateY(-2px) scale(0.95)', opacity: '0.9' },
+					'75%': { transform: 'translateY(-3px) scale(1.02)', opacity: '0.7' },
+				},
+				'lava-pulse': {
+					'0%, 100%': { boxShadow: '0 0 15px #F97316' },
+					'50%': { boxShadow: '0 0 25px #F97316, 0 0 40px #DC2626' },
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fire-flicker': 'fire-flicker 2s ease-in-out infinite',
+				'lava-pulse': 'lava-pulse 2s infinite',
+				'float': 'float 6s ease-in-out infinite',
+			},
+			fontFamily: {
+				'pixel': ['"Press Start 2P"', 'cursive'],
 			}
 		}
 	},
