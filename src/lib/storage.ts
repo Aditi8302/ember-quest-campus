@@ -1,3 +1,4 @@
+
 import { UserData, Role, Zone, Badge, Visit } from '../types/game';
 
 const USER_DATA_KEY = 'ember_quest_user_data';
@@ -13,7 +14,13 @@ export const initializeUser = (username: string, role: Role): UserData => {
     streakDays: 0,
     lastVisit: today,
     badges: [],
-    visits: {},
+    visits: {
+      'Mosspit': undefined,
+      'Riverfang': undefined,
+      'Stonegrill': undefined,
+      'Clawstone Crater': undefined,
+      'Bone Spear Range': undefined
+    },
     frozenEmberRelicEarned: false,
   };
 
